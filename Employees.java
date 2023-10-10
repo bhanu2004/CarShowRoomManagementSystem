@@ -1,38 +1,37 @@
 import java.util.Scanner;
 import java.util.UUID;
-public class Employees extends Showroom implements utility{
-    String emp_id;
-    String emp_name;
-    int emp_age;
-    String emp_department;
 
+public class Employees {
+    private String emp_id;
+    private String emp_name;
+    private int emp_age;
+    private String emp_department;
+    private String showroom_name;
 
-    @Override
-    public void get_details() {
-        System.out.println("ID: "+emp_id);
-        System.out.println("Name: "+emp_name);
-        System.out.println("Age: "+emp_age);
-        System.out.println("Department: "+emp_department);
-        System.out.println("Showroom Name: "+showroom_name);
-
+    public String getEmpId() {
+        return emp_id;
     }
-    @Override
-    public void set_details(){
-        Scanner sc = new Scanner(System.in);
+
+    public void getDetails() {
+        System.out.println("ID: " + emp_id);
+        System.out.println("Name: " + emp_name);
+        System.out.println("Age: " + emp_age);
+        System.out.println("Department: " + emp_department);
+        System.out.println("Showroom Name: " + showroom_name);
+    }
+
+    public void setDetails(Scanner sc) {
         UUID uuid = UUID.randomUUID();
         emp_id = String.valueOf(uuid);
         System.out.println("======================= *** ENTER EMPLOYEE DETAILS *** =======================");
-        System.out.println();
-        System.out.print("EMPLOYEE NAME: ");
+        System.out.print("Employee Name: ");
         emp_name = sc.nextLine();
-        System.out.print(("EMPLOYEE AGE: "));
+        System.out.print("Employee Age: ");
         emp_age = sc.nextInt();
         sc.nextLine();
-        System.out.print("EMPLOYEE DEPARTMENT: ");
+        System.out.print("Employee Department: ");
         emp_department = sc.nextLine();
-        System.out.print("SHOWROOM NAME: ");
+        System.out.print("Showroom Name: ");
         showroom_name = sc.nextLine();
-
-
     }
 }
